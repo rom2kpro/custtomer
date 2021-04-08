@@ -10,7 +10,7 @@
                         <div class="user-avatar">
                             <a class="edit-avatar" href="#"></a><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User"></div>
                         <div class="user-data">
-                            <h4>Daniel Adams</h4><span>Joined February 06, 2017</span>
+                            <h4 v-if="$store.state.customer.user.customer_name">{{$store.state.customer.user.customer_name}}</h4><span>Joined February 06, 2017</span>
                         </div>
                     </div>
                 </aside>
