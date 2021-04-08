@@ -1,7 +1,7 @@
 <template>
     <section id="tabs">
         <div class="container">
-            <h6 class="section-title h1">Tabs</h6>
+            <h6 class="section-title h1">SHOP HKT</h6>
             <div class="row">
                 <div class="col-xs-12 ">
                     <nav>
