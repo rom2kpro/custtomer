@@ -14,7 +14,13 @@
                         <a class="cart-item-thumb mx-auto mr-sm-4" href="#"><img :src="'data:image/png;base64,' + cart.product_thumbnail.image_base64"></a>
                         <div class="media-body pt-3 ml-5">
                             <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a href="#">{{cart.product_name}}</a></h3>
+<<<<<<< HEAD
                             <div class="font-size-lg text-primary pt-2">{{parseInt(cart.product_price).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</div>
+=======
+                            <div class="font-size-sm"><span class="text-muted mr-2">Size:</span>8.5</div>
+                            <div class="font-size-sm"><span class="text-muted mr-2">Color:</span>Black</div>
+                            <div class="font-size-lg text-primary pt-2">${{cart.product_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</div>
+>>>>>>> 1857bd396ab4429ddb1bc1192a0139739dff73d1
                         </div>
                     </div>
                     <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style="max-width: 10rem;">
