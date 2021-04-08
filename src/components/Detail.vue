@@ -55,7 +55,7 @@
                                 </div>
                                 <span>3 Reviews</span>
                             </div>
-                            <div class="product-price-discount"><span>${{product.product_sale_price}}</span><span class="line-through">${{product.product_default_price}}</span></div>
+                            <div class="product-price-discount"><span>{{parseInt(product.product_sale_price).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span><span class="line-through">{{parseInt(product.product_default_price).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span></div>
                         </div>
                         <!-- <p>{{product.product_thumbnail}}</p> -->
                         <!-- <div class="row">
@@ -80,9 +80,9 @@
                         <div class="product-count">
                             <label for="size">Quantity</label>
                             <form action="#" class="display-flex">
-                                <div class="qtyminus">-</div>
-                                <input type="text" name="quantity" value="1" class="qty">
-                                <div class="qtyplus">+</div>
+                                <div class="qtyminus" @click="quantity--">-</div>
+                                <input type="text" name="quantity" v-model="quantity" class="qty">
+                                <div class="qtyplus" @click="quantity++">+</div>
                             </form>
                             <a href="#" class="round-black-btn" @click="AddToCart()">Add to Cart</a>
                         </div>
@@ -128,7 +128,7 @@
                                 <div class="content ml-4">{{comment.content}}</div>
                             </div>
                         </div>
-                        <form class="review-form">
+                        <form class="review-form" v-if="$store.state.customer.login">
                             <div class="form-group">
                                 <label>Your rating</label>
                                 <div class="reviews-counter">
@@ -149,18 +149,6 @@
                             <div class="form-group">
                                 <label>Your message</label>
                                 <textarea v-model="comment" class="form-control" rows="10"></textarea>
-                            </div>
-                            <div class="row" v-if="!$store.state.customer.login">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="" class="form-control" placeholder="Name*">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Email Id*">
-                                    </div>
-                                </div>
                             </div>
                             <button class="round-black-btn" type="button" @click="submitComment">Submit Review</button>
                         </form>
@@ -197,7 +185,8 @@ export default {
             index: 0,
             id: this.$route.params.id,
             comment: "",
-            comments: []
+            comments: [],
+            quantity: 1,
         }
     },
     watch:{
@@ -247,7 +236,7 @@ export default {
             if(this.$store.state.customer.confirm){
                 CartRepository.addToCart({
                     product_id: this.id,
-                    quantity: 1
+                    quantity: this.quantity
                 }, this.$store.state.customer.access_token).then(response=>{
                     this.$router.push('/cart')
                 })

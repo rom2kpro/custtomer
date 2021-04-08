@@ -14,9 +14,7 @@
                         <a class="cart-item-thumb mx-auto mr-sm-4" href="#"><img :src="'data:image/png;base64,' + cart.product_thumbnail.image_base64"></a>
                         <div class="media-body pt-3 ml-5">
                             <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a href="#">{{cart.product_name}}</a></h3>
-                            <div class="font-size-sm"><span class="text-muted mr-2">Size:</span>8.5</div>
-                            <div class="font-size-sm"><span class="text-muted mr-2">Color:</span>Black</div>
-                            <div class="font-size-lg text-primary pt-2">${{cart.product_price}}</div>
+                            <div class="font-size-lg text-primary pt-2">{{parseInt(cart.product_price).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</div>
                         </div>
                     </div>
                     <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style="max-width: 10rem;">
@@ -51,10 +49,8 @@
                 <hr>
                 <h3 class="h6 pt-4 font-weight-semibold"><span class="badge badge-success mr-2">Note</span>Additional comments</h3>
                 <textarea class="form-control mb-3" id="order-comments" rows="5"></textarea>
-                <h2 class="h6 px-4 py-3 bg-info text-center">Fee ship</h2>
-                <div class="h3 font-weight-semibold text-center py-3">${{total}}</div>
                 <h2 class="h6 px-4 py-3 bg-info text-center">Subtotal</h2>
-                <div class="h3 font-weight-semibold text-center py-3">${{total}}</div>
+                <div class="h3 font-weight-semibold text-center py-3">${{parseInt(total).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</div>
                 <a class="btn btn-primary btn-block" href="#" @click="Buy">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2">
                         <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>

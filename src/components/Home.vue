@@ -89,8 +89,8 @@
                             {{ product.product_name }}
                         </h5>
                         <div class="shop-thumb__price">
-                            <span class="shop-thumb-price_old">${{product.product_default_price}}</span>
-                            <span class="shop-thumb-price_new">${{product.product_sale_price}}</span>
+                            <span class="shop-thumb-price_old">{{parseInt(product.product_default_price).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span>
+                            <span class="shop-thumb-price_new">{{parseInt(product.product_sale_price).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</span>
                         </div>
                         </router-link>
                     </div>
