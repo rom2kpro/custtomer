@@ -8,7 +8,7 @@
                         <th>Bill: {{order.bill_id}}</th>
                         <th>
                             <div>Day : {{order.time_create}}</div>
-                            <div>Total : ${{parseInt(order.total).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</div>
+                            <div>Total : {{parseInt(order.total).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</div>
                         </th>
                     </tr>
                 </thead>
@@ -27,7 +27,7 @@
                                     class="product-thumb" 
                                     :to="'/detail/' + product.product_id"
                                 >{{product.product_name}}</router-link></h4>
-                                    <div class="text-lg text-medium text-muted">${{parseInt(product.product_price).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</div>
+                                    <div class="text-lg text-medium text-muted">{{parseInt(product.product_price).toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</div>
                                     <div>Quantity:
                                         <div class="d-inline">{{product.quantity}}</div>
                                     </div>
