@@ -16,7 +16,7 @@
                             <h3 class="product-card-title font-weight-semibold border-0 pb-0"><a href="#">{{cart.product_name}}</a></h3>
                             <div class="font-size-sm"><span class="text-muted mr-2">Size:</span>8.5</div>
                             <div class="font-size-sm"><span class="text-muted mr-2">Color:</span>Black</div>
-                            <div class="font-size-lg text-primary pt-2">${{cart.product_price}}</div>
+                            <div class="font-size-lg text-primary pt-2">${{cart.product_price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}}</div>
                         </div>
                     </div>
                     <div class="pt-2 pt-sm-0 pl-sm-3 mx-auto mx-sm-0 text-center text-sm-left" style="max-width: 10rem;">
